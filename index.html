@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FileFlow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#04060b" />
+  <meta name="description" content="FileFlow. Engineering software that survives reality." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #04060b;
+      color: #e8ebf0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+    }
+
+    #gl {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    main { position: relative; z-index: 2; }
+
+    header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      padding: 28px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 3;
+      mix-blend-mode: difference;
+    }
+
+    .brand {
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    nav a {
+      color: #e8ebf0;
+      opacity: 0.7;
+      text-decoration: none;
+    }
+
+    nav a:hover { opacity: 1; }
+
+    .hero {
+      min-height: 100vh;
+      padding: 140px 12vw 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 110px);
+      font-weight: 900;
+      line-height: 0.95;
+      margin: 0 0 32px;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      max-width: 520px;
+      font-size: 18px;
+      color: #9aa3b2;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      margin-top: 48px;
+      display: flex;
+      gap: 24px;
+    }
+
+    .btn {
+      padding: 16px 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: transparent;
+      color: #e8ebf0;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: #e8ebf0;
+      color: #04060b;
+      border: none;
+    }
+
+    section {
+      padding: 160px 12vw;
+    }
+
+    section h2 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 64px;
+      letter-spacing: -1px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 64px;
+    }
+
+    .service {
+      border-left: 2px solid rgba(255,255,255,0.08);
+      padding-left: 24px;
+    }
+
+    .service h3 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .service p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #9aa3b2;
+    }
+
+    footer {
+      padding: 96px 12vw;
+      font-size: 13px;
+      color: #7c8494;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    @media (max-width: 900px) {
+      .services { grid-template-columns: 1fr; }
+      header { padding: 20px 24px; }
+      .hero { padding: 120px 24px; }
+      section { padding: 120px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="gl"></canvas>
+
+<header>
+  <div class="brand">FILEFLOW</div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Software<br>engineered<br>to survive.</h1>
+    <p>
+      FileFlow builds high-end software systems for companies that care about longevity,
+      performance, and correctness. No throwaway code. No shortcuts.
+    </p>
+    <div class="hero-actions">
+      <button class="btn primary">Start a Project</button>
+      <button class="btn">See Capabilities</button>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Capabilities</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Product Engineering</h3>
+        <p>End-to-end delivery of mobile, web, and SaaS products built for scale and long-term evolution.</p>
+      </div>
+      <div class="service">
+        <h3>Architecture & Systems</h3>
+        <p>Clean, auditable architectures with real constraints: performance, security, cost, and growth.</p>
+      </div>
+      <div class="service">
+        <h3>Rescue & Rebuild</h3>
+        <p>We fix broken systems, rewrite critical paths, and stabilize products already in production.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: contact@fileflowco.com</p>
+    <p>Operating globally. Selective engagements only.</p>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 FileFlow Inc.</span>
+  <span>Engineering software that survives reality.</span>
+</footer>
+
+<script>
+const canvas = document.getElementById('gl');
+const gl = canvas.getContext('webgl');
+
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+gl.viewport(0,0,canvas.width,canvas.height);
+
+const vs = `
+attribute vec2 p;
+void main(){ gl_Position = vec4(p,0.0,1.0); }
+`;
+
+const fs = `
+precision highp float;
+uniform float t;
+uniform vec2 r;
+
+float fbm(vec2 p){
+  float v = 0.0;
+  float a = 0.5;
+  for(int i=0;i<5;i++){
+    v += a * sin(p.x)*cos(p.y);
+    p *= 2.0;
+    a *= 0.5;
+  }
+  return v;
+}
+
+void main(){
+  vec2 uv = (gl_FragCoord.xy - 0.5*r) / r.y;
+  float d = length(uv);
+  float ang = atan(uv.y, uv.x);
+
+  float spin = t*0.15;
+  float warp = fbm(vec2(ang*3.0, d*8.0 - t*0.8));
+  ang += spin + warp*0.4;
+
+  float disk = smoothstep(0.45,0.25,d) * smoothstep(0.18,0.22,d);
+  float shadow = smoothstep(0.22,0.12,d);
+
+  vec3 hot = vec3(1.0,0.6,0.2);
+  vec3 warm = vec3(0.6,0.3,0.1);
+  vec3 cold = vec3(0.05,0.07,0.1);
+
+  vec3 col = mix(cold, warm, disk);
+  col = mix(col, hot, disk*pow(abs(sin(ang*4.0)),2.0));
+  col *= (1.0 - shadow);
+  col *= smoothstep(0.9,0.2,d);
+
+  gl_FragColor = vec4(col,1.0);
+}
+`;
+
+function compile(type, src){
+  const s = gl.createShader(type);
+  gl.shaderSource(s, src);
+  gl.compileShader(s);
+  return s;
+}
+
+const prog = gl.createProgram();
+gl.attachShader(prog, compile(gl.VERTEX_SHADER, vs));
+gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fs));
+gl.linkProgram(prog);
+gl.useProgram(prog);
+
+const buf = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+  -1,-1, 1,-1, -1,1,
+  -1,1, 1,-1, 1,1
+]), gl.STATIC_DRAW);
+
+const loc = gl.getAttribLocation(prog,'p');
+gl.enableVertexAttribArray(loc);
+gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+
+const tLoc = gl.getUniformLocation(prog,'t');
+const rLoc = gl.getUniformLocation(prog,'r');
+
+function loop(ms){
+  gl.uniform1f(tLoc, ms*0.001);
+  gl.uniform2f(rLoc, canvas.width, canvas.height);
+  gl.drawArrays(gl.TRIANGLES,0,6);
+  requestAnimationFrame(loop);
+}
+loop(0);
+
+addEventListener('resize',()=>{
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+  gl.viewport(0,0,canvas.width,canvas.height);
+});
+</script>
+
+</body>
+</html>
